@@ -25,4 +25,6 @@ class solr6 (
   include solr6::config
   include solr6::service
 
+  Class['Solr6::Install']->Class['Solr6::Config']->Class['Solr6::Service']
+
 }
