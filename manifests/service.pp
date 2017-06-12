@@ -18,11 +18,28 @@ class solr6::service {
     refreshonly => true,
   }
 
-  service { 'solr':
-    ensure     => running,
-    enable     => true,
-    hasrestart => true,
-    hasstatus  => true,
+  case $::solr6::installation_type {
+    'web': {
+      service { 'solr':
+        ensure     => running,
+        enable     => true,
+        hasrestart => true,
+        hasstatus  => true,
+        require    => Archive["/tmp/solr-${::solr6::version}.zip"],
+      }
+    }
+    'package': {
+      service { 'solr':
+        ensure     => running,
+        enable     => true,
+        hasrestart => true,
+        hasstatus  => true,
+        require    => Package[$::solr6::package],
+      }
+    }
+    default: {
+      fail('Unsupported installation type for Solr')
+    }
   }
 
 }
