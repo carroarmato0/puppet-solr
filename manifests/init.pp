@@ -20,6 +20,10 @@
 #   Example: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=18983
 #   By default nothing is passed
 #
+# * `zookeepers`
+#   Passes an array of zookeeper addresses.
+#   Example:  ['localhost:2181','localhost:2182','localhost:2183']
+#
 # * `example`
 #   Loads an example configuration
 #   Possible examples are: cloud, techproducts, dih and schemaless.
@@ -34,6 +38,7 @@ class solr6 (
   $version           = $::solr6::params::version,
   $memory            = $::solr6::params::memory,
   $extra_params      = $::solr6::params::extra_params,
+  $zookeepers        = [],
   $example           = $::solr6::params::example,
   $installation_type = $::solr6::params::installation_type,
   $manage_java       = $::solr6::params::manage_java,
