@@ -15,6 +15,10 @@
 #   Example: 4g
 #   Default is 512m
 #
+# * `data_dir`
+#   Specify the Solr server directory.
+#   Default is: server
+#
 # * `extra_params`
 #   Passes extra paramters to the Solr instance through the -a option.
 #   Example: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=18983
@@ -37,6 +41,7 @@
 class solr6 (
   $version           = $::solr6::params::version,
   $memory            = $::solr6::params::memory,
+  $data_dir          = $::solr6::params::data_dir,
   $extra_params      = $::solr6::params::extra_params,
   $zookeepers        = [],
   $example           = $::solr6::params::example,

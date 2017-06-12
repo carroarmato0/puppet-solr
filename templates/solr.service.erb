@@ -12,6 +12,7 @@ ExecStart=/opt/solr/bin/solr \
   -z <%= scope.lookupvar('solr6::zookeepers').join(',') %> \
   <%- end -%>
   -m <%= scope.lookupvar('solr6::memory') %> \
+  -d <%= scope.lookupvar('solr6::data_dir') %> \
   <%- if not scope.lookupvar('solr6::extra_params').empty? -%>
   -a "<%= scope.lookupvar('solr6::extra_params') %>" \
   <%- end -%>

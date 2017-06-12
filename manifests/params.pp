@@ -4,6 +4,7 @@ class solr6::params {
   $user              = 'solr'
   $group             = 'solr'
   $base_dir          = '/opt/solr'
+  $data_dir          = "${base_dir}/server"
   $installation_type = 'web'
   $manage_java       = true
   $manage_entropy    = true
