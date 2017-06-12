@@ -16,8 +16,8 @@
 #   Default is: web
 #
 class solr6 (
-  $version           = $::solr::params::version,
-  $installation_type = $::solr::params::installation_type,
+  $version           = $::solr6::params::version,
+  $installation_type = $::solr6::params::installation_type,
 ) inherits solr6::params {
 
   include solr6::install
