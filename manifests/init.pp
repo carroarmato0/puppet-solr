@@ -15,6 +15,11 @@
 #   Example: 4g
 #   Default is 512m
 #
+# * `extra_params`
+#   Passes extra paramters to the Solr instance through the -a option.
+#   Example: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=18983
+#   By default nothing is passed
+#
 # * `installation_type`
 #   Module supports both fetching Solr from the internet as well as from a package.
 #   Supported options are: `web` and `package`
@@ -23,6 +28,7 @@
 class solr6 (
   $version           = $::solr6::params::version,
   $memory            = $::solr6::params::memory,
+  $extra_params      = $::solr6::params::extra_params,
   $installation_type = $::solr6::params::installation_type,
   $manage_java       = $::solr6::params::manage_java,
   $manage_entropy    = $::solr6::params::manage_entropy,
