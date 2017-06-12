@@ -20,6 +20,11 @@
 #   Example: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=18983
 #   By default nothing is passed
 #
+# * `example`
+#   Loads an example configuration
+#   Possible examples are: cloud, techproducts, dih and schemaless.
+#   By default nothing is passed.
+#
 # * `installation_type`
 #   Module supports both fetching Solr from the internet as well as from a package.
 #   Supported options are: `web` and `package`
@@ -29,6 +34,7 @@ class solr6 (
   $version           = $::solr6::params::version,
   $memory            = $::solr6::params::memory,
   $extra_params      = $::solr6::params::extra_params,
+  $example           = $::solr6::params::example,
   $installation_type = $::solr6::params::installation_type,
   $manage_java       = $::solr6::params::manage_java,
   $manage_entropy    = $::solr6::params::manage_entropy,

@@ -9,5 +9,6 @@ class solr6::params {
   $manage_entropy    = true
   $memory            = '512m'
   $extra_params      = ''
+  $example           = ''
   $download_url_base = 'http://apache.cu.be/lucene/solr'
 }

@@ -10,6 +10,9 @@ class solr6::config {
   $default_folders = [
     "/opt/solr-${::solr6::version}",
     '/opt/solr/bin',
+    '/opt/solr/server',
+    '/opt/solr/server/logs',
+    '/opt/solr/server/logs/archived',
   ]
 
   file { $default_folders:

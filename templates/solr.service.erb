@@ -5,7 +5,9 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 [Service]
 PIDFile=/opt/solr/bin/solr-8983.pid
 ExecStart=/opt/solr/bin/solr \
-  -e cloud \
+  <%- if not scope.lookupvar('solr6::example').empty? -%>
+  -e <%= scope.lookupvar('solr6::example') %> \
+  <%- end -%>
   -m <%= scope.lookupvar('solr6::memory') %> \
   <%- if not scope.lookupvar('solr6::extra_params').empty? -%>
   -a "<%= scope.lookupvar('solr6::extra_params') %>" \
