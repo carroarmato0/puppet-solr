@@ -23,6 +23,12 @@ class solr6::install {
     }
   }
 
+  if $::solr6::manage_java {
+    class { 'java':
+      distribution => 'jdk',
+    }
+  }
+
   case $::solr6::installation_type {
     'web': {
       include ::solr6::installer::web
