@@ -29,6 +29,19 @@ class solr6::install {
     }
   }
 
+  if $::solr6::manage_entropy {
+    package { 'haveged':
+      ensure => installed,
+    }
+
+    service { 'haveged':
+      ensure  => running,
+      enable  => true,
+      before  => Service['solr'],
+      require => Package['haveged'],
+    }
+  }
+
   case $::solr6::installation_type {
     'web': {
       include ::solr6::installer::web

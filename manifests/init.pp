@@ -19,6 +19,7 @@ class solr6 (
   $version           = $::solr6::params::version,
   $installation_type = $::solr6::params::installation_type,
   $manage_java       = $::solr6::params::manage_java,
+  $manage_entropy    = $::solr6::params::manage_entropy,
 ) inherits solr6::params {
 
   include solr6::install

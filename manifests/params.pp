@@ -6,5 +6,6 @@ class solr6::params {
   $base_dir          = '/opt/solr'
   $installation_type = 'web'
   $manage_java       = true
+  $manage_entropy    = true
   $download_url_base = 'http://apache.cu.be/lucene/solr'
 }
