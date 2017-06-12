@@ -5,5 +5,5 @@ class solr6::params {
   $group             = 'solr'
   $base_dir          = '/opt/solr'
   $installation_type = 'web'
-  $download_url_base = 'http://apache.cu.be/lucene/solr/'
+  $download_url_base = 'http://apache.cu.be/lucene/solr'
 }
