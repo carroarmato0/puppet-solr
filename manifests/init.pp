@@ -21,5 +21,7 @@ class solr6 (
 ) inherits solr6::params {
 
   include solr6::install
+  include solr6::config
+  include solr6::service
 
 }
