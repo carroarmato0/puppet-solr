@@ -24,9 +24,7 @@ class solr6::install {
   }
 
   if $::solr6::manage_java {
-    class { 'java':
-      distribution => 'jdk',
-    }
+    include ::java
   }
 
   if $::solr6::manage_entropy {
