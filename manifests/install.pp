@@ -16,6 +16,12 @@ class solr6::install {
     system => true,
   }
 
+  file { '/etc/profile.d/solr.sh':
+    ensure  => file,
+    mode    => '0644',
+    content => "PATH=\$PATH:${::solr6::params::base_dir}/bin/",
+  }
+
   # Check if required package is preset
   if !defined(Package['lsof']) {
     package { 'lsof':
