@@ -13,6 +13,7 @@ class solr6::config {
     $::solr6::data_dir,
     "${::solr6::data_dir}/logs",
     "${::solr6::data_dir}/logs/archived",
+    "${::solr6::data_dir}/solr",
   ]
 
   file { $default_folders:

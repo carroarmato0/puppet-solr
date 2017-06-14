@@ -7,6 +7,7 @@ class solr6::install {
     comment => 'Solr user',
     groups  => 'solr',
     system  => true,
+    home    => $::solr6::params::base_dir,
     require => Group['solr'],
   }
 
