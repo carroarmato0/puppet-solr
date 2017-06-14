@@ -12,10 +12,8 @@ ExecStart=/opt/solr/bin/solr \
   -z <%= scope.lookupvar('solr6::zookeepers').join(',') %> \
   <%- end -%>
   -m <%= scope.lookupvar('solr6::memory') %> \
-  -d <%= scope.lookupvar('solr6::data_dir') %> \
-  <%- if not scope.lookupvar('solr6::extra_params').empty? -%>
-  -a "<%= scope.lookupvar('solr6::extra_params') %>" \
-  <%- end -%>
+  -d <%= scope.lookupvar('solr6::params::data_dir') %> \
+  -a "-Dsolr.log.dir=<%= scope.lookupvar('solr6::log_dir') %> <%= scope.lookupvar('solr6::extra_params') %>" \
   -noprompt
 User=solr
 ExecReload=/bin/kill -s HUP $MAINPID

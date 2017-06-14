@@ -10,17 +10,10 @@ class solr6::config {
   $default_folders = [
     "/opt/solr-${::solr6::version}",
     '/opt/solr/bin',
-    '/var/log/solr',
     $::solr6::data_dir,
-    "${::solr6::data_dir}/logs/archived",
     "${::solr6::data_dir}/solr",
+    $::solr6::log_dir,
   ]
-
-  file { "${::solr6::data_dir}/logs":
-    ensure => link,
-    target => '/var/log/solr',
-    force  => true,
-  }
 
   file { $default_folders:
     ensure => directory,
