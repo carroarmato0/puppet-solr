@@ -114,12 +114,4 @@ class solr6::config {
     notify => Service['solr'],
   }
 
-  file_line { 'SOLR_TIMEZONE':
-    ensure => present,
-    path   => '/opt/solr/bin/solr.in.sh',
-    line   => "SOLR_TIMEZONE=${::solr6::timezone}",
-    match  => '^SOLR_TIMEZONE\=',
-    notify => Service['solr'],
-  }
-
 }
