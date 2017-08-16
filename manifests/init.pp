@@ -37,7 +37,10 @@
 class solr6 (
   $version           = $::solr6::params::version,
   $memory            = $::solr6::params::memory,
+  $port              = $::solr6::params::port,
   $log_dir           = $::solr6::params::log_dir,
+  $log_level         = $::solr6::params::log_level,
+  $timezone          = $::solr6::params::timezone,
   $extra_params      = $::solr6::params::extra_params,
   $zookeepers        = [],
   $example           = $::solr6::params::example,
