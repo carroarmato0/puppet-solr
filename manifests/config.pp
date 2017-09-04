@@ -114,4 +114,12 @@ class solr6::config {
     notify => Service['solr'],
   }
 
+  file_line { 'SOLR_OPTS':
+    ensure => present,
+    path   => '/opt/solr/bin/solr.in.sh',
+    line   => "SOLR_OPS=\"\$SOLR_OPS ${::solr6::extra_params}\"",
+    match  => '^SOLR_OPS\=',
+    notify => Service['solr'],
+  }
+
 }
